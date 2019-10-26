@@ -1,0 +1,73 @@
+/*
+Colors
+#0059a4 : blue
+#616161 : grey
+#EBF2F6 : light blue
+*/
+.stepBar {
+    display: flex;
+}
+.stepBar-statusIndicator {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-shrink: 1;
+}
+
+.stepBar-statusIndicator-label {
+    text-transform: uppercase;
+    font-family: "Helvetica";
+    color: #0059a4;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.stepBar-statusIndicator-barAndStatusWrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.stepBar-statusIndicator-status {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #0059a4;
+    background-color: #0059a4;
+}
+
+.stepBar-statusIndicator-bar {
+    height: 8px;
+    width: 50px;
+    background-color: #0059a4;
+}
+
+.stepBar-statusIndicator-bar--hidden {
+    visibility: hidden;
+}
+
+.stepBar-statusIndicator--current img {
+    display: none;
+}
+
+.stepBar-statusIndicator--current + .stepBar-statusIndicator > .stepBar-statusIndicator-label {
+    color: #616161;
+}
+
+.stepBar-statusIndicator.stepBar-statusIndicator--current + .stepBar-statusIndicator.stepBar-statusIndicator  img{
+    display: none;
+}
+
+.stepBar-statusIndicator.stepBar-statusIndicator--current .stepBar-statusIndicator-status {
+    background-color: white;
+}
+
+.stepBar-statusIndicator.stepBar-statusIndicator--current + .stepBar-statusIndicator .stepBar-statusIndicator-status {
+    background-color: #EBF2F6;
+    border-color: #EBF2F6;
+}
+
+.stepBar-statusIndicator.stepBar-statusIndicator--current .stepBar-statusIndicator-bar--post,
+.stepBar-statusIndicator.stepBar-statusIndicator--current + .stepBar-statusIndicator .stepBar-statusIndicator-bar {
+    background-color: #EBF2F6;
+}
+
