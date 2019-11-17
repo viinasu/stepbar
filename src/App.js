@@ -9,11 +9,11 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentStep: 1,
+      currentStep: null,
       allSteps: [
         { label: "account", isCompleted: true },
-        { label: "security", isCompleted: false },
-        { label: "review", isCompleted: false }
+        { label: "security", isCompleted: true },
+        { label: "review", isCompleted: true }
       ]
     }
   }

@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Progress Step Bar Component
+ 
+This is a React component that takes a `currentStep` and `allSteps`. It is styled to show the current step.
 
-## Available Scripts
+`<StepBar currentStep={this.state.currentStep} allSteps={this.state.allSteps} />`
 
-In the project directory, you can run:
+```
+this.state = {
+      currentStep: null,
+      allSteps: [
+        { label: "account", isCompleted: true },
+        { label: "security", isCompleted: true },
+        { label: "review", isCompleted: true }
+      ]
+    }
+```
+![screenshot](screenshot.png)
 
-### `yarn start`
+Created on Sept 2019.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Features
+#### StepBar SubComponent
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* includes a "label", "prebar", "statusCircle", "postbar"
+* first bar of the first step is hidden, as well as the last bar of the last step
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### CSS styles for stepBar SubComponent: before current, is current, and after current styles
 
-### `yarn build`
+all stepbars are set as blue by default
+```
+.stepBar-statusIndicator-status {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid @blue;
+    background-color: @blue;
+}
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+the current one is light blue
+```css
+.stepBar-statusIndicator.stepBar-statusIndicator--current .stepBar-statusIndicator-bar--post,
+.stepBar-statusIndicator.stepBar-statusIndicator--current + .stepBar-statusIndicator .stepBar-statusIndicator-bar {
+    background-color: @light-blue;
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `yarn eject`
+stepbars after the current are light blue, and has a light blue border 
+```css
+.stepBar-statusIndicator.stepBar-statusIndicator--current + .stepBar-statusIndicator .stepBar-statusIndicator-status {
+    background-color: @light-blue;
+    border-color: @light-blue;
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Tech Stack
+**Frontend:** React
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Backend:** CRA
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**APIs:**
+n/a
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### To Run:
+`yarn install`
+`yarn start`
 
-## Learn More
+### Architecture
+**index.js**
+The entry point for component. Renders App component.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**app.js**
+renders StepBar component. holds the main states `currentStep` and `allSteps`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**StepBar.js**
+renders the mapped step bars. 
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Improvements
+- ? 
